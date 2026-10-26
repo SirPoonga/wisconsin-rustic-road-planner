@@ -163,11 +163,14 @@ function styleRoad(id) {
   const layer = state.roadLayers.get(id);
   if (!layer) return;
   const selected = state.selectedIds.has(id);
+  const item = state.itinerary.find(entry => entry.type === 'road' && entry.id === id);
+  const endpointOnly = selected && item && !visitsBothEnds(item);
   layer.setStyle({
     pane: selected ? 'selectedRoads' : 'roads',
-    color: selected ? '#bc5f3d' : '#536d58',
-    weight: selected ? 6 : 3,
-    opacity: selected ? 0.95 : 0.62,
+    color: selected ? (endpointOnly ? '#d8a83e' : '#bc5f3d') : '#536d58',
+    weight: selected ? (endpointOnly ? 4 : 6) : 3,
+    opacity: selected ? (endpointOnly ? 0.82 : 0.95) : 0.62,
+    dashArray: endpointOnly ? '8 7' : null,
   });
   if (selected) layer.bringToFront();
 }
@@ -927,8 +930,8 @@ async function buildRoute() {
     const route = await buildHybridRoute();
     if (route.coordinates.length < 2) throw new Error('No route found');
     const latLngs = route.coordinates.map(c => [c[1], c[0]]);
-    const casing = L.polyline(latLngs, { pane: 'route', color: '#fffdf7', weight: 10, opacity: .9, lineJoin: 'round', interactive: false }).addTo(map);
-    const routeLine = L.polyline(latLngs, { pane: 'route', color: '#bc5f3d', weight: 6, opacity: .98, lineJoin: 'round', interactive: false }).addTo(map);
+    const casing = L.polyline(latLngs, { pane: 'route', color: '#fffdf7', weight: 8, opacity: .86, lineJoin: 'round', interactive: false }).addTo(map);
+    const routeLine = L.polyline(latLngs, { pane: 'route', color: '#26758a', weight: 4, opacity: .98, lineJoin: 'round', interactive: false }).addTo(map);
     state.routeLayers = [casing, routeLine];
     addRouteOrderMarkers();
     state.lastWaypoints = waypoints;
@@ -1024,12 +1027,12 @@ function showRouteSummary(meters, seconds, waypoints) {
     els.googleLegs.hidden = false;
     els.googleLegs.innerHTML = `<span>Full route in Google Maps</span><div class="google-leg-list">${detailedLegs.map((leg, index) => `<a class="google-leg-link" href="${escapeHtml(googleDirectionsUrl(leg))}" target="_blank" rel="noreferrer">Leg ${index + 1} of ${detailedLegs.length}</a>`).join('')}</div>`;
     els.routeNote.textContent = overviewFits
-      ? `Numbered map markers show visit order. The map and GPX follow the supplied Rustic Road geometry; Google Maps may choose a different mapped road. Open all ${detailedLegs.length} numbered legs for directions.`
-      : `Numbered map markers show visit order. The selected road visits exceed Google Maps' single-link waypoint limit. The map and GPX follow the supplied Rustic Road geometry; open all ${detailedLegs.length} numbered legs for directions.`;
+      ? `Blue is the calculated route; solid brown is Rustic Road geometry; dashed gold marks endpoint-only roads. Numbered markers show visit order. Google Maps may choose a different mapped road. Open all ${detailedLegs.length} numbered legs for directions.`
+      : `Blue is the calculated route; solid brown is Rustic Road geometry; dashed gold marks endpoint-only roads. Numbered markers show visit order. The selected road visits exceed Google Maps' single-link waypoint limit; open all ${detailedLegs.length} numbered legs for directions.`;
   } else {
     els.googleLegs.hidden = true;
     els.googleLegs.innerHTML = '';
-    els.routeNote.textContent = 'Numbered map markers show visit order. The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road. Check road conditions and closures before you leave.';
+    els.routeNote.textContent = 'Blue is the calculated route; solid brown is Rustic Road geometry; dashed gold marks endpoint-only roads. Numbered markers show visit order. Check road conditions and closures before you leave.';
   }
   prepareGpxDownload();
   els.routeSummary.classList.add('visible');
@@ -1207,6 +1210,7 @@ els.itineraryList.addEventListener('change', event => {
   if (!item || item.type !== 'road') return;
   item.visitBothEnds = endpointInput.checked;
   clearRoute();
+  styleRoad(item.id);
   savePlannerState();
   if (state.activeHighlightKey === itineraryItemKey(item)) {
     const key = state.activeHighlightKey;
