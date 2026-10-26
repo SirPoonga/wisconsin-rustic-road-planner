@@ -112,7 +112,7 @@
             <span>Create scenic route</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
           </button>
-          <p>Trip auto-saves in this browser · Routing by OSRM · <a href="https://github.com/Wiscmapper/WisconsinRusticRoads" target="_blank" rel="noreferrer">Rustic Roads data</a> by Wiscmapper</p>
+          <p>Trip auto-saves in this browser · OSRM connectors + supplied Rustic Road geometry · <a href="https://github.com/Wiscmapper/WisconsinRusticRoads" target="_blank" rel="noreferrer">Rustic Roads data</a> by Wiscmapper</p>
         </footer>
       </aside>
 
@@ -151,7 +151,7 @@
             <button class="text-button" id="editRouteButton">Keep editing</button>
           </div>
           <div class="google-legs" id="googleLegs" hidden></div>
-          <p class="route-note" id="routeNote">GPX includes named stops, route points, and the full track. Check road conditions and closures before you leave.</p>
+          <p class="route-note" id="routeNote">The map and GPX follow the supplied Rustic Road geometry. Check road conditions and closures before you leave.</p>
         </article>
         <div class="loading-card" id="loadingCard" role="status">
           <span class="spinner"></span>
@@ -161,6 +161,6 @@
       </section>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js?v=2b3d7a5"></script>
+    <script src="app.js?v=rr28-geometry-1"></script>
   </body>
 </html>

@@ -14,7 +14,7 @@ python -m http.server 4173 --directory dist
 
 - Rustic Roads geometry: [Wiscmapper/WisconsinRusticRoads](https://github.com/Wiscmapper/WisconsinRusticRoads), MIT License.
 - Basemap and place search: OpenStreetMap contributors and Nominatim.
-- Routing: the public OSRM routing service.
+- Routing: the public OSRM routing service for connectors between stops; the supplied Rustic Road GeoJSON geometry is used directly for selected road segments so the map and GPX stay on the scenic road even when the routing network takes a nearby shortcut.
 
 The GeoJSON has no structured pavement or surface field. Some road descriptions mention gravel, sand, paved, or unpaved sections, but that free text is not complete enough to classify every road.
 

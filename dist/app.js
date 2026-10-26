@@ -746,6 +746,22 @@ function sampledRoadPoints(road, current, next = null) {
   return shouldReverseRoad(road, current, next) ? points.reverse() : points;
 }
 
+function roadGeometryPoints(road, current = null, next = null) {
+  const points = flatCoordinates(road).map(point => [...point]);
+  if (shouldReverseRoad(road, current, next)) points.reverse();
+  return points.filter((point, index) => index === 0 || distance(point, points[index - 1]) > 0.001);
+}
+
+function polylineMeters(points) {
+  return points.slice(1).reduce((total, point, index) => total + distance(points[index], point) * 1000, 0);
+}
+
+function rusticRoadSeconds(road, meters) {
+  const roadMeters = Number(road.properties.distance) || meters;
+  const scenicSpeedKph = 45;
+  return roadMeters / (scenicSpeedKph * 1000 / 3600);
+}
+
 function nextItineraryCoordinate(index) {
   if (index < state.itinerary.length - 1) return itemCoordinate(state.itinerary[index + 1]);
   return state.end?.coordinate || null;
@@ -773,6 +789,82 @@ function buildWaypoints() {
   return points.filter((point, index) => index === 0 || distance(point, points[index - 1]) > 0.02);
 }
 
+async function fetchOsrmRoute(from, to) {
+  if (!from || !to || distance(from, to) <= 0.001) {
+    return { coordinates: from && to ? [from, to] : [], distance: 0, duration: 0 };
+  }
+  const coordinates = [from, to].map(point => `${point[0].toFixed(6)},${point[1].toFixed(6)}`).join(';');
+  const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson&steps=false`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error('Routing service error');
+  const data = await response.json();
+  if (data.code !== 'Ok' || !data.routes?.length) throw new Error('No route found');
+  const route = data.routes[0];
+  return {
+    coordinates: route.geometry.coordinates.map(coordinate => [...coordinate]),
+    distance: route.distance,
+    duration: route.duration,
+  };
+}
+
+async function buildHybridRoute() {
+  // OSRM is reliable for connecting stops, but its road graph can omit or
+  // shortcut a Rustic Road. Keep the supplied GeoJSON as the authoritative
+  // track for every selected two-end road and route only the connectors.
+  const routeCoordinates = [];
+  let current = state.start?.coordinate || null;
+  let meters = 0;
+  let seconds = 0;
+
+  const appendCoordinates = coordinates => {
+    coordinates.forEach(point => {
+      if (!routeCoordinates.length || distance(routeCoordinates.at(-1), point) > 0.001) {
+        routeCoordinates.push([...point]);
+      }
+    });
+  };
+
+  const connectTo = async target => {
+    if (!target) return;
+    if (!current) {
+      appendCoordinates([target]);
+      current = target;
+      return;
+    }
+    const connector = await fetchOsrmRoute(current, target);
+    appendCoordinates(connector.coordinates);
+    meters += connector.distance;
+    seconds += connector.duration;
+    current = target;
+  };
+
+  for (let index = 0; index < state.itinerary.length; index += 1) {
+    const item = state.itinerary[index];
+    if (item.type === 'stop') {
+      await connectTo(item.coordinate);
+      continue;
+    }
+
+    const road = state.roadById.get(item.id);
+    const next = nextItineraryCoordinate(index);
+    if (visitsBothEnds(item)) {
+      const roadPoints = roadGeometryPoints(road, current, next);
+      await connectTo(roadPoints[0]);
+      appendCoordinates(roadPoints);
+      const roadMeters = Number(road.properties.distance) || polylineMeters(roadPoints);
+      meters += roadMeters;
+      seconds += rusticRoadSeconds(road, roadMeters);
+      current = roadPoints.at(-1);
+    } else {
+      const endpoint = roadEndpoints(road)[preferredSingleEndpoint(item, index, current)];
+      await connectTo(endpoint);
+    }
+  }
+
+  if (state.end) await connectTo(state.end.coordinate);
+  return { coordinates: routeCoordinates, distance: meters, duration: seconds };
+}
+
 async function buildRoute() {
   if (!state.selectedIds.size) return;
   const waypoints = buildWaypoints();
@@ -784,19 +876,14 @@ async function buildRoute() {
   els.loadingCard.classList.add('visible');
   if (window.innerWidth <= 820) openMap();
   try {
-    const coordinates = waypoints.map(c => `${c[0].toFixed(6)},${c[1].toFixed(6)}`).join(';');
-    const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson&steps=false`;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Routing service error');
-    const data = await response.json();
-    if (data.code !== 'Ok' || !data.routes?.length) throw new Error('No route found');
-    const route = data.routes[0];
-    const latLngs = route.geometry.coordinates.map(c => [c[1], c[0]]);
+    const route = await buildHybridRoute();
+    if (route.coordinates.length < 2) throw new Error('No route found');
+    const latLngs = route.coordinates.map(c => [c[1], c[0]]);
     const casing = L.polyline(latLngs, { pane: 'route', color: '#fffdf7', weight: 10, opacity: .9, lineJoin: 'round', interactive: false }).addTo(map);
     const routeLine = L.polyline(latLngs, { pane: 'route', color: '#bc5f3d', weight: 6, opacity: .98, lineJoin: 'round', interactive: false }).addTo(map);
     state.routeLayers = [casing, routeLine];
     state.lastWaypoints = waypoints;
-    state.routeCoordinates = route.geometry.coordinates.map(coordinate => [...coordinate]);
+    state.routeCoordinates = route.coordinates;
     map.fitBounds(routeLine.getBounds(), { padding: [55, 55] });
     showRouteSummary(route.distance, route.duration, waypoints);
   } catch (error) {
@@ -883,12 +970,12 @@ function showRouteSummary(meters, seconds, waypoints) {
     els.googleLegs.hidden = false;
     els.googleLegs.innerHTML = `<span>Full route in Google Maps</span><div class="google-leg-list">${detailedLegs.map((leg, index) => `<a class="google-leg-link" href="${escapeHtml(googleDirectionsUrl(leg))}" target="_blank" rel="noreferrer">Leg ${index + 1} of ${detailedLegs.length}</a>`).join('')}</div>`;
     els.routeNote.textContent = overviewFits
-      ? `The overview follows every selected one-end or both-end road visit. Open all ${detailedLegs.length} numbered legs for the detailed path; GPX preserves the exact full track.`
-      : `The selected road visits exceed Google Maps' single-link waypoint limit. Open all ${detailedLegs.length} numbered legs, or use GPX for the exact full track.`;
+      ? `The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road; open all ${detailedLegs.length} numbered legs for directions.`
+      : `The selected road visits exceed Google Maps' single-link waypoint limit. The map and GPX follow the supplied Rustic Road geometry; open all ${detailedLegs.length} numbered legs for directions.`;
   } else {
     els.googleLegs.hidden = true;
     els.googleLegs.innerHTML = '';
-    els.routeNote.textContent = 'Google Maps and GPX include the full planned route. Check road conditions and closures before you leave.';
+    els.routeNote.textContent = 'The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road. Check road conditions and closures before you leave.';
   }
   prepareGpxDownload();
   els.routeSummary.classList.add('visible');
