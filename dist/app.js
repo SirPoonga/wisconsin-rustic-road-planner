@@ -119,7 +119,7 @@ function roadEndpoints(road) {
 function visitsBothEnds(item) {
   if (typeof item.visitBothEnds === 'boolean') return item.visitBothEnds;
   if (item.endpoints) return item.endpoints.a !== false && item.endpoints.b !== false;
-  return false;
+  return true;
 }
 
 function roadItineraryItem(id, saved = null) {
@@ -128,7 +128,9 @@ function roadItineraryItem(id, saved = null) {
     id,
     visitBothEnds: typeof saved?.visitBothEnds === 'boolean'
       ? saved.visitBothEnds
-      : Boolean(saved?.endpoints && saved.endpoints.a !== false && saved.endpoints.b !== false),
+      : saved?.endpoints
+        ? saved.endpoints.a !== false && saved.endpoints.b !== false
+        : true,
   };
 }
 
@@ -293,17 +295,20 @@ function setMapHighlight(key) {
 
   if (item.type === 'road') {
     const road = state.roadById.get(item.id);
-    const line = L.polyline(featureLatLngs(road), {
-      pane: 'highlight',
-      color: '#d8a83e',
-      weight: 10,
-      opacity: 1,
-      lineJoin: 'round',
-      interactive: false,
-    });
     const endpoints = roadEndpoints(road);
     const roadIndex = state.itinerary.indexOf(item);
     const singleEndpoint = visitsBothEnds(item) ? null : preferredSingleEndpoint(item, roadIndex);
+    const layers = [];
+    if (visitsBothEnds(item)) {
+      layers.push(L.polyline(featureLatLngs(road), {
+        pane: 'highlight',
+        color: '#d8a83e',
+        weight: 10,
+        opacity: 1,
+        lineJoin: 'round',
+        interactive: false,
+      }));
+    }
     const endpointMarkers = ['a', 'b'].map(endpoint => {
       const coordinate = endpoints[endpoint];
       const included = visitsBothEnds(item) || endpoint === singleEndpoint;
@@ -315,7 +320,7 @@ function setMapHighlight(key) {
       });
       return L.marker([coordinate[1], coordinate[0]], { pane: 'highlight', icon, interactive: false });
     });
-    state.highlightLayer = L.layerGroup([line, ...endpointMarkers]).addTo(map);
+    state.highlightLayer = L.layerGroup([...layers, ...endpointMarkers]).addTo(map);
     return;
   }
 
