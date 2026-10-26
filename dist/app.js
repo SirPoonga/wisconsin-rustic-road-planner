@@ -713,16 +713,24 @@ function preferredSingleEndpoint(item, index, current = null) {
   return score(endpoints.b) < score(endpoints.a) ? 'b' : 'a';
 }
 
-function sampledRoadPoints(road, current) {
+function sampledRoadPoints(road, current, next = null) {
   const coords = flatCoordinates(road);
   if (coords.length < 2) return coords;
   const indexes = [0];
   if (coords.length > 2) indexes.push(Math.round((coords.length - 1) / 3));
   if (coords.length > 3) indexes.push(Math.round(2 * (coords.length - 1) / 3));
   indexes.push(coords.length - 1);
-  let points = [...new Set(indexes)].map(index => coords[index]);
-  if (current && distance(current, points.at(-1)) < distance(current, points[0])) points = points.reverse();
-  return points;
+  const points = [...new Set(indexes)].map(index => coords[index]);
+  const forwardScore = (current ? distance(current, points[0]) : 0)
+    + (next ? distance(points.at(-1), next) : 0);
+  const reverseScore = (current ? distance(current, points.at(-1)) : 0)
+    + (next ? distance(points[0], next) : 0);
+  return reverseScore < forwardScore ? points.reverse() : points;
+}
+
+function nextItineraryCoordinate(index) {
+  if (index < state.itinerary.length - 1) return itemCoordinate(state.itinerary[index + 1]);
+  return state.end?.coordinate || null;
 }
 
 function buildWaypoints() {
@@ -735,8 +743,9 @@ function buildWaypoints() {
       current = item.coordinate;
     } else {
       const road = state.roadById.get(item.id);
+      const next = nextItineraryCoordinate(index);
       const sampled = visitsBothEnds(item)
-        ? sampledRoadPoints(road, current)
+        ? sampledRoadPoints(road, current, next)
         : [roadEndpoints(road)[preferredSingleEndpoint(item, index, current)]];
       sampled.forEach(point => points.push(point));
       current = sampled.at(-1);
@@ -806,8 +815,14 @@ function googleOverviewPoints() {
     const road = state.roadById.get(item.id);
     const endpoints = roadEndpoints(road);
     if (visitsBothEnds(item)) {
-      let orderedEndpoints = [endpoints.a, endpoints.b];
-      if (current && distance(current, endpoints.b) < distance(current, endpoints.a)) orderedEndpoints = orderedEndpoints.reverse();
+      const next = nextItineraryCoordinate(index);
+      const forwardScore = (current ? distance(current, endpoints.a) : 0)
+        + (next ? distance(endpoints.b, next) : 0);
+      const reverseScore = (current ? distance(current, endpoints.b) : 0)
+        + (next ? distance(endpoints.a, next) : 0);
+      const orderedEndpoints = reverseScore < forwardScore
+        ? [endpoints.b, endpoints.a]
+        : [endpoints.a, endpoints.b];
       points.push(...orderedEndpoints);
       current = orderedEndpoints.at(-1);
       return;
