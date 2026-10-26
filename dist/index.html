@@ -87,6 +87,12 @@
               <p>Your selected roads and stops will appear here.</p>
             </div>
             <ol class="itinerary-list" id="itineraryList"></ol>
+            <form class="stop-search" id="stopSearchForm">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+              <label class="sr-only" for="stopSearchInput">Search for an intermediate visit point</label>
+              <input id="stopSearchInput" type="search" placeholder="Search for a place to visit" autocomplete="off" />
+              <button type="submit" id="stopSearchButton">Add</button>
+            </form>
             <div class="itinerary-actions">
               <button class="secondary-button" id="addStopButton">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><path d="M9 9h6m-3-3v6"/></svg>
@@ -114,7 +120,17 @@
         <div class="map-topbar">
           <button class="map-back-button" id="closeMapButton" aria-label="Back to planner">‹</button>
           <div class="dataset-pill"><span id="roadTotal">126</span> scenic roads across Wisconsin</div>
-          <button class="map-button" id="fitWisconsinButton">View all roads</button>
+          <div class="map-controls">
+            <label class="layer-select" for="mapStyleSelect">
+              <span>Map style</span>
+              <select id="mapStyleSelect">
+                <option value="streets">Streets</option>
+                <option value="satellite">Satellite</option>
+                <option value="topo">Topographic</option>
+              </select>
+            </label>
+            <button class="map-button" id="fitWisconsinButton">View all roads</button>
+          </div>
         </div>
         <div class="pick-banner" id="pickBanner" role="status">
           <span id="pickBannerText">Click the map to place a stop</span>

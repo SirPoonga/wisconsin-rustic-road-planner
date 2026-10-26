@@ -41,10 +41,21 @@ const els = {
 
 const map = L.map('map', { zoomControl: false, preferCanvas: true }).setView([44.7, -89.7], 7);
 L.control.zoom({ position: 'bottomright' }).addTo(map);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(map);
+const baseLayers = {
+  streets: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }),
+  satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri, Maxar, Earthstar Geographics',
+  }),
+  topo: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    maxZoom: 17,
+    attribution: 'Map data &copy; OpenStreetMap contributors, style &copy; OpenTopoMap',
+  }),
+};
+let activeBaseLayer = baseLayers.streets.addTo(map);
 
 const roadsPane = map.createPane('roads');
 roadsPane.style.zIndex = 410;
@@ -274,11 +285,7 @@ async function geocode(type) {
   }
   input.disabled = true;
   try {
-    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=us&limit=1&q=${encodeURIComponent(query + ', Wisconsin')}`;
-    const response = await fetch(url, { headers: { 'Accept-Language': 'en' } });
-    if (!response.ok) throw new Error('Search unavailable');
-    const [result] = await response.json();
-    if (!result) throw new Error('No match');
+    const result = await findPlace(query);
     const coordinate = [Number(result.lon), Number(result.lat)];
     placePoint(type, coordinate, result.display_name.split(',').slice(0, 2).join(','));
     map.flyTo([coordinate[1], coordinate[0]], 11);
@@ -286,6 +293,45 @@ async function geocode(type) {
     showToast(`Could not find “${query}”. Try a nearby city or pick the map.`);
   } finally {
     input.disabled = false;
+  }
+}
+
+async function findPlace(query) {
+  const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=us&viewbox=-92.89,47.31,-86.25,42.49&bounded=0&limit=1&q=${encodeURIComponent(query + ', Wisconsin')}`;
+  const response = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+  if (!response.ok) throw new Error('Search unavailable');
+  const [result] = await response.json();
+  if (!result) throw new Error('No match');
+  return result;
+}
+
+async function addSearchedStop(event) {
+  event.preventDefault();
+  const input = document.querySelector('#stopSearchInput');
+  const button = document.querySelector('#stopSearchButton');
+  const query = input.value.trim();
+  if (!query) {
+    input.focus();
+    return;
+  }
+  input.disabled = true;
+  button.disabled = true;
+  button.textContent = '…';
+  try {
+    const result = await findPlace(query);
+    const coordinate = [Number(result.lon), Number(result.lat)];
+    const label = result.display_name.split(',').slice(0, 2).join(',');
+    placePoint('stop', coordinate, label);
+    map.flyTo([coordinate[1], coordinate[0]], 11);
+    input.value = '';
+    showToast(`${label} added to your visit order.`);
+  } catch (error) {
+    showToast(`Could not find “${query}”. Try a nearby town or add it on the map.`);
+  } finally {
+    input.disabled = false;
+    button.disabled = false;
+    button.textContent = 'Add';
+    input.focus();
   }
 }
 
@@ -495,6 +541,13 @@ els.startInput.addEventListener('change', () => geocode('start'));
 els.endInput.addEventListener('change', () => geocode('end'));
 els.mobileMapToggle.addEventListener('click', openMap);
 document.querySelector('#closeMapButton').addEventListener('click', closeMap);
+document.querySelector('#stopSearchForm').addEventListener('submit', addSearchedStop);
+document.querySelector('#mapStyleSelect').addEventListener('change', event => {
+  const nextLayer = baseLayers[event.target.value];
+  if (!nextLayer || nextLayer === activeBaseLayer) return;
+  map.removeLayer(activeBaseLayer);
+  activeBaseLayer = nextLayer.addTo(map);
+});
 document.querySelector('#summaryClose').addEventListener('click', () => els.routeSummary.classList.remove('visible'));
 document.querySelector('#editRouteButton').addEventListener('click', () => {
   els.routeSummary.classList.remove('visible');

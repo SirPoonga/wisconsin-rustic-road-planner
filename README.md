@@ -1,6 +1,6 @@
 # Wisconsin Rustic Road Trip Planner
 
-A buildless, browser-based route planner for Wisconsin's official Rustic Roads. Visitors can select up to 12 roads, add custom points on the map, rearrange or automatically order the itinerary, and create a driving route.
+A buildless, browser-based route planner for Wisconsin's official Rustic Roads. Visitors can select up to 12 roads, search for intermediate places or add custom points on the map, rearrange or automatically order the itinerary, choose street, satellite, or topographic basemaps, and create a driving route.
 
 ## Local preview
 
