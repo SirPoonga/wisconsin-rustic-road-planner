@@ -309,12 +309,18 @@ function setMapHighlight(key) {
         interactive: false,
       }));
     }
+    const previous = roadIndex > 0 ? itemCoordinate(state.itinerary[roadIndex - 1]) : state.start?.coordinate || null;
+    const next = nextItineraryCoordinate(roadIndex);
+    const ordered = visitsBothEnds(item)
+      ? orderedRoadEndpoints(road, previous, next)
+      : [{ key: singleEndpoint, coordinate: endpoints[singleEndpoint] }];
     const endpointMarkers = ['a', 'b'].map(endpoint => {
       const coordinate = endpoints[endpoint];
-      const included = visitsBothEnds(item) || endpoint === singleEndpoint;
+      const visitIndex = ordered.findIndex(entry => entry.key === endpoint);
+      const included = visitIndex !== -1;
       const icon = L.divIcon({
         className: '',
-        html: `<div class="road-endpoint-map-marker${included ? ' included' : ''}">${endpoint.toUpperCase()}</div>`,
+        html: `<div class="road-endpoint-map-marker${included ? ' included' : ''}">${included ? visitIndex + 1 : endpoint.toUpperCase()}</div>`,
         iconSize: [26, 26],
         iconAnchor: [13, 13],
       });
@@ -713,6 +719,22 @@ function preferredSingleEndpoint(item, index, current = null) {
   return score(endpoints.b) < score(endpoints.a) ? 'b' : 'a';
 }
 
+function shouldReverseRoad(road, current = null, next = null) {
+  const endpoints = roadEndpoints(road);
+  const forwardScore = (current ? distance(current, endpoints.a) : 0)
+    + (next ? distance(endpoints.b, next) : 0);
+  const reverseScore = (current ? distance(current, endpoints.b) : 0)
+    + (next ? distance(endpoints.a, next) : 0);
+  return reverseScore < forwardScore;
+}
+
+function orderedRoadEndpoints(road, current = null, next = null) {
+  const endpoints = roadEndpoints(road);
+  return shouldReverseRoad(road, current, next)
+    ? [{ key: 'b', coordinate: endpoints.b }, { key: 'a', coordinate: endpoints.a }]
+    : [{ key: 'a', coordinate: endpoints.a }, { key: 'b', coordinate: endpoints.b }];
+}
+
 function sampledRoadPoints(road, current, next = null) {
   const coords = flatCoordinates(road);
   if (coords.length < 2) return coords;
@@ -721,11 +743,7 @@ function sampledRoadPoints(road, current, next = null) {
   if (coords.length > 3) indexes.push(Math.round(2 * (coords.length - 1) / 3));
   indexes.push(coords.length - 1);
   const points = [...new Set(indexes)].map(index => coords[index]);
-  const forwardScore = (current ? distance(current, points[0]) : 0)
-    + (next ? distance(points.at(-1), next) : 0);
-  const reverseScore = (current ? distance(current, points.at(-1)) : 0)
-    + (next ? distance(points[0], next) : 0);
-  return reverseScore < forwardScore ? points.reverse() : points;
+  return shouldReverseRoad(road, current, next) ? points.reverse() : points;
 }
 
 function nextItineraryCoordinate(index) {
@@ -816,15 +834,9 @@ function googleOverviewPoints() {
     const endpoints = roadEndpoints(road);
     if (visitsBothEnds(item)) {
       const next = nextItineraryCoordinate(index);
-      const forwardScore = (current ? distance(current, endpoints.a) : 0)
-        + (next ? distance(endpoints.b, next) : 0);
-      const reverseScore = (current ? distance(current, endpoints.b) : 0)
-        + (next ? distance(endpoints.a, next) : 0);
-      const orderedEndpoints = reverseScore < forwardScore
-        ? [endpoints.b, endpoints.a]
-        : [endpoints.a, endpoints.b];
-      points.push(...orderedEndpoints);
-      current = orderedEndpoints.at(-1);
+      const ordered = orderedRoadEndpoints(road, current, next).map(entry => entry.coordinate);
+      points.push(...ordered);
+      current = ordered.at(-1);
       return;
     }
     const endpoint = endpoints[preferredSingleEndpoint(item, index, current)];
