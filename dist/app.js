@@ -9,6 +9,7 @@ const state = {
   roadLayers: new Map(),
   pointMarkers: new Map(),
   routeLayers: [],
+  routeOrderMarkers: [],
   lastWaypoints: [],
   routeCoordinates: [],
   gpxUrl: null,
@@ -314,13 +315,15 @@ function setMapHighlight(key) {
     const ordered = visitsBothEnds(item)
       ? orderedRoadEndpoints(road, previous, next)
       : [{ key: singleEndpoint, coordinate: endpoints[singleEndpoint] }];
-    const endpointMarkers = ['a', 'b'].map(endpoint => {
+    const routeOrderEntries = routeVisitOrder().filter(entry => entry.itemKey === key);
+    const routeOrderLabels = new Map(routeOrderEntries.map(entry => [entry.endpoint, entry.label]));
+    const endpointMarkers = state.routeOrderMarkers.length ? [] : ['a', 'b'].map(endpoint => {
       const coordinate = endpoints[endpoint];
       const visitIndex = ordered.findIndex(entry => entry.key === endpoint);
       const included = visitIndex !== -1;
       const icon = L.divIcon({
         className: '',
-        html: `<div class="road-endpoint-map-marker${included ? ' included' : ''}">${included ? visitIndex + 1 : endpoint.toUpperCase()}</div>`,
+        html: `<div class="road-endpoint-map-marker${included ? ' included' : ''}">${routeOrderLabels.get(endpoint) || (included ? visitIndex + 1 : endpoint.toUpperCase())}</div>`,
         iconSize: [26, 26],
         iconAnchor: [13, 13],
       });
@@ -752,6 +755,48 @@ function roadGeometryPoints(road, current = null, next = null) {
   return points.filter((point, index) => index === 0 || distance(point, points[index - 1]) > 0.001);
 }
 
+function routeVisitOrder() {
+  const entries = [];
+  let sequence = 1;
+  let current = state.start?.coordinate || null;
+
+  state.itinerary.forEach((item, index) => {
+    const itemKey = itineraryItemKey(item);
+    if (item.type === 'stop') {
+      entries.push({ itemKey, endpoint: 'stop', coordinate: item.coordinate, label: String(sequence++) });
+      current = item.coordinate;
+      return;
+    }
+
+    const road = state.roadById.get(item.id);
+    const next = nextItineraryCoordinate(index);
+    const visits = visitsBothEnds(item)
+      ? orderedRoadEndpoints(road, current, next)
+      : [{ key: preferredSingleEndpoint(item, index, current), coordinate: roadEndpoints(road)[preferredSingleEndpoint(item, index, current)] }];
+    visits.forEach(entry => entries.push({ itemKey, endpoint: entry.key, coordinate: entry.coordinate, label: String(sequence++) }));
+    current = visits.at(-1)?.coordinate || current;
+  });
+
+  return entries;
+}
+
+function routeOrderIcon(label) {
+  return L.divIcon({
+    className: '',
+    html: `<div class="route-order-marker">${escapeHtml(label)}</div>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+  });
+}
+
+function addRouteOrderMarkers() {
+  state.routeOrderMarkers = routeVisitOrder().map(entry => L.marker(
+    [entry.coordinate[1], entry.coordinate[0]],
+    { pane: 'highlight', icon: routeOrderIcon(entry.label), interactive: false },
+  ).addTo(map));
+  state.routeLayers.push(...state.routeOrderMarkers);
+}
+
 function polylineMeters(points) {
   return points.slice(1).reduce((total, point, index) => total + distance(points[index], point) * 1000, 0);
 }
@@ -882,9 +927,15 @@ async function buildRoute() {
     const casing = L.polyline(latLngs, { pane: 'route', color: '#fffdf7', weight: 10, opacity: .9, lineJoin: 'round', interactive: false }).addTo(map);
     const routeLine = L.polyline(latLngs, { pane: 'route', color: '#bc5f3d', weight: 6, opacity: .98, lineJoin: 'round', interactive: false }).addTo(map);
     state.routeLayers = [casing, routeLine];
+    addRouteOrderMarkers();
     state.lastWaypoints = waypoints;
     state.routeCoordinates = route.coordinates;
     map.fitBounds(routeLine.getBounds(), { padding: [55, 55] });
+    if (state.activeHighlightKey) {
+      const activeKey = state.activeHighlightKey;
+      clearMapHighlight();
+      setMapHighlight(activeKey);
+    }
     showRouteSummary(route.distance, route.duration, waypoints);
   } catch (error) {
     showToast('The routing service could not connect these stops. Try fewer roads or a different order.');
@@ -970,12 +1021,12 @@ function showRouteSummary(meters, seconds, waypoints) {
     els.googleLegs.hidden = false;
     els.googleLegs.innerHTML = `<span>Full route in Google Maps</span><div class="google-leg-list">${detailedLegs.map((leg, index) => `<a class="google-leg-link" href="${escapeHtml(googleDirectionsUrl(leg))}" target="_blank" rel="noreferrer">Leg ${index + 1} of ${detailedLegs.length}</a>`).join('')}</div>`;
     els.routeNote.textContent = overviewFits
-      ? `The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road; open all ${detailedLegs.length} numbered legs for directions.`
-      : `The selected road visits exceed Google Maps' single-link waypoint limit. The map and GPX follow the supplied Rustic Road geometry; open all ${detailedLegs.length} numbered legs for directions.`;
+      ? `Numbered map markers show visit order. The map and GPX follow the supplied Rustic Road geometry; Google Maps may choose a different mapped road. Open all ${detailedLegs.length} numbered legs for directions.`
+      : `Numbered map markers show visit order. The selected road visits exceed Google Maps' single-link waypoint limit. The map and GPX follow the supplied Rustic Road geometry; open all ${detailedLegs.length} numbered legs for directions.`;
   } else {
     els.googleLegs.hidden = true;
     els.googleLegs.innerHTML = '';
-    els.routeNote.textContent = 'The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road. Check road conditions and closures before you leave.';
+    els.routeNote.textContent = 'Numbered map markers show visit order. The map and GPX follow the supplied Rustic Road geometry. Google Maps may choose a different mapped road. Check road conditions and closures before you leave.';
   }
   prepareGpxDownload();
   els.routeSummary.classList.add('visible');
@@ -1048,6 +1099,7 @@ function formatDuration(seconds) {
 function clearRoute(hideSummary = true) {
   state.routeLayers.forEach(layer => layer.remove());
   state.routeLayers = [];
+  state.routeOrderMarkers = [];
   state.lastWaypoints = [];
   state.routeCoordinates = [];
   if (state.gpxUrl) URL.revokeObjectURL(state.gpxUrl);
