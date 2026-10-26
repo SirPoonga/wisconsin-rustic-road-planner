@@ -80,6 +80,9 @@ routePane.style.pointerEvents = 'none';
 const highlightPane = map.createPane('highlight');
 highlightPane.style.zIndex = 440;
 highlightPane.style.pointerEvents = 'none';
+const routeOrderPane = map.createPane('routeOrder');
+routeOrderPane.style.zIndex = 650;
+routeOrderPane.style.pointerEvents = 'none';
 
 function roadNumber(road) {
   const match = road.properties.title.match(/(?:Rustic\s+Road|R[- ]?)\s*0*(\d+)/i);
@@ -792,7 +795,7 @@ function routeOrderIcon(label) {
 function addRouteOrderMarkers() {
   state.routeOrderMarkers = routeVisitOrder().map(entry => L.marker(
     [entry.coordinate[1], entry.coordinate[0]],
-    { pane: 'highlight', icon: routeOrderIcon(entry.label), interactive: false },
+    { pane: 'routeOrder', icon: routeOrderIcon(entry.label), interactive: false },
   ).addTo(map));
   state.routeLayers.push(...state.routeOrderMarkers);
 }
