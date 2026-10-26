@@ -37,7 +37,7 @@
               <div><h2 id="locationsTitle">Trip endpoints</h2><p>Optional—leave blank to start on the first road.</p></div>
             </div>
             <div class="location-stack">
-              <div class="location-row" data-location="start">
+              <div class="location-row" data-location="start" data-highlight-key="endpoint:start" tabindex="-1" aria-label="Highlight trip start on the map">
                 <span class="location-dot start-dot" aria-hidden="true"></span>
                 <div class="location-input-wrap">
                   <label for="startInput">Start</label>
@@ -47,7 +47,7 @@
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-5 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"/></svg>
                 </button>
               </div>
-              <div class="location-row" data-location="end">
+              <div class="location-row" data-location="end" data-highlight-key="endpoint:end" tabindex="-1" aria-label="Highlight trip finish on the map">
                 <span class="location-dot end-dot" aria-hidden="true"></span>
                 <div class="location-input-wrap">
                   <label for="endInput">Finish</label>
@@ -63,7 +63,7 @@
           <section class="section-block roads-section" aria-labelledby="roadsTitle">
             <div class="section-heading">
               <span class="step">2</span>
-              <div><h2 id="roadsTitle">Choose Rustic Roads</h2><p><span id="selectedCount">0</span> selected · up to 12</p></div>
+              <div><h2 id="roadsTitle">Choose Rustic Roads</h2><p>Pick from the list below—or click a Rustic Road directly on the map. <span id="selectedCount">0</span> selected · up to 25</p></div>
             </div>
             <div class="search-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
@@ -80,7 +80,7 @@
           <section class="section-block itinerary-section" aria-labelledby="itineraryTitle">
             <div class="section-heading">
               <span class="step">3</span>
-              <div><h2 id="itineraryTitle">Arrange your route</h2><p>Stops are visited from top to bottom.</p></div>
+              <div><h2 id="itineraryTitle">Arrange your route</h2><p>Stops are visited top to bottom. Turn on “Visit both ends” to drive the full road.</p></div>
             </div>
             <div class="itinerary-empty" id="itineraryEmpty">
               <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 47c12-20 21 8 32-11M16 17v30m32-30v30"/><circle cx="16" cy="14" r="4"/><path d="m44 18 4-6 4 6"/></svg>
@@ -102,6 +102,7 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10m0 0-3-3m3 3-3 3M20 17H10m0 0 3-3m-3 3 3 3"/></svg>
                 Auto-order
               </button>
+              <button class="secondary-button clear-trip-button" id="clearTripButton" type="button">Clear saved trip</button>
             </div>
           </section>
         </main>
@@ -111,7 +112,7 @@
             <span>Create scenic route</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
           </button>
-          <p>Routing by OSRM · <a href="https://github.com/Wiscmapper/WisconsinRusticRoads" target="_blank" rel="noreferrer">Rustic Roads data</a> by Wiscmapper</p>
+          <p>Trip auto-saves in this browser · Routing by OSRM · <a href="https://github.com/Wiscmapper/WisconsinRusticRoads" target="_blank" rel="noreferrer">Rustic Roads data</a> by Wiscmapper</p>
         </footer>
       </aside>
 
@@ -119,7 +120,7 @@
         <div id="map"></div>
         <div class="map-topbar">
           <button class="map-back-button" id="closeMapButton" aria-label="Back to planner">‹</button>
-          <div class="dataset-pill"><span id="roadTotal">126</span> scenic roads across Wisconsin</div>
+          <div class="dataset-pill"><span id="roadTotal">126</span> scenic roads · click a road to select</div>
           <div class="map-controls">
             <label class="layer-select" for="mapStyleSelect">
               <span>Map style</span>
@@ -146,9 +147,11 @@
           </div>
           <div class="summary-actions">
             <a class="directions-button" id="googleMapsLink" href="#" target="_blank" rel="noreferrer">Open in Google Maps</a>
+            <a class="directions-button gpx-download-button" id="downloadGpxLink" href="#" download aria-disabled="true">Download GPX</a>
             <button class="text-button" id="editRouteButton">Keep editing</button>
           </div>
-          <p class="route-note">Check road conditions and closures before you leave.</p>
+          <div class="google-legs" id="googleLegs" hidden></div>
+          <p class="route-note" id="routeNote">GPX includes named stops, route points, and the full track. Check road conditions and closures before you leave.</p>
         </article>
         <div class="loading-card" id="loadingCard" role="status">
           <span class="spinner"></span>
