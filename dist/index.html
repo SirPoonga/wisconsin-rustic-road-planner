@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Plan a scenic Wisconsin drive around the Rustic Roads you choose." />
+    <title>Wisconsin Rustic Road Trip Planner</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="planner" aria-label="Route planner">
+        <header class="brand">
+          <div class="route-shield" aria-hidden="true">R</div>
+          <div>
+            <p class="eyebrow">Wisconsin scenic drives</p>
+            <h1>Rustic Road Trip</h1>
+          </div>
+          <button class="icon-button mobile-map-toggle" id="mobileMapToggle" aria-label="Show map">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Zm6-1v11m6-8v11"/></svg>
+          </button>
+        </header>
+
+        <main class="panel-content">
+          <section class="intro-card">
+            <span class="kicker">Build your own backroad escape</span>
+            <p>Choose official Rustic Roads, add any must-see stops, then create a turn-by-turn-ready driving route.</p>
+          </section>
+
+          <section class="section-block" aria-labelledby="locationsTitle">
+            <div class="section-heading">
+              <span class="step">1</span>
+              <div><h2 id="locationsTitle">Trip endpoints</h2><p>Optional—leave blank to start on the first road.</p></div>
+            </div>
+            <div class="location-stack">
+              <div class="location-row" data-location="start">
+                <span class="location-dot start-dot" aria-hidden="true"></span>
+                <div class="location-input-wrap">
+                  <label for="startInput">Start</label>
+                  <input id="startInput" type="search" placeholder="City, address, or place" autocomplete="off" />
+                </div>
+                <button class="locate-button" data-pick="start" title="Pick start on map" aria-label="Pick start on map">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-5 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"/></svg>
+                </button>
+              </div>
+              <div class="location-row" data-location="end">
+                <span class="location-dot end-dot" aria-hidden="true"></span>
+                <div class="location-input-wrap">
+                  <label for="endInput">Finish</label>
+                  <input id="endInput" type="search" placeholder="Same as start for a loop" autocomplete="off" />
+                </div>
+                <button class="locate-button" data-pick="end" title="Pick finish on map" aria-label="Pick finish on map">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-5 0a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-block roads-section" aria-labelledby="roadsTitle">
+            <div class="section-heading">
+              <span class="step">2</span>
+              <div><h2 id="roadsTitle">Choose Rustic Roads</h2><p><span id="selectedCount">0</span> selected · up to 12</p></div>
+            </div>
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+              <input id="roadSearch" type="search" placeholder="Search road number or description" aria-label="Search Rustic Roads" />
+              <kbd>/</kbd>
+            </div>
+            <div class="road-list" id="roadList" role="list" aria-live="polite">
+              <div class="skeleton-list" aria-label="Loading roads">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-block itinerary-section" aria-labelledby="itineraryTitle">
+            <div class="section-heading">
+              <span class="step">3</span>
+              <div><h2 id="itineraryTitle">Arrange your route</h2><p>Stops are visited from top to bottom.</p></div>
+            </div>
+            <div class="itinerary-empty" id="itineraryEmpty">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 47c12-20 21 8 32-11M16 17v30m32-30v30"/><circle cx="16" cy="14" r="4"/><path d="m44 18 4-6 4 6"/></svg>
+              <p>Your selected roads and stops will appear here.</p>
+            </div>
+            <ol class="itinerary-list" id="itineraryList"></ol>
+            <div class="itinerary-actions">
+              <button class="secondary-button" id="addStopButton">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><path d="M9 9h6m-3-3v6"/></svg>
+                Add stop on map
+              </button>
+              <button class="secondary-button" id="optimizeButton">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10m0 0-3-3m3 3-3 3M20 17H10m0 0 3-3m-3 3 3 3"/></svg>
+                Auto-order
+              </button>
+            </div>
+          </section>
+        </main>
+
+        <footer class="planner-footer">
+          <button class="primary-button" id="buildRouteButton" disabled>
+            <span>Create scenic route</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          </button>
+          <p>Routing by OSRM · <a href="https://github.com/Wiscmapper/WisconsinRusticRoads" target="_blank" rel="noreferrer">Rustic Roads data</a> by Wiscmapper</p>
+        </footer>
+      </aside>
+
+      <section class="map-shell" aria-label="Interactive map">
+        <div id="map"></div>
+        <div class="map-topbar">
+          <button class="map-back-button" id="closeMapButton" aria-label="Back to planner">‹</button>
+          <div class="dataset-pill"><span id="roadTotal">126</span> scenic roads across Wisconsin</div>
+          <button class="map-button" id="fitWisconsinButton">View all roads</button>
+        </div>
+        <div class="pick-banner" id="pickBanner" role="status">
+          <span id="pickBannerText">Click the map to place a stop</span>
+          <button id="cancelPickButton">Cancel</button>
+        </div>
+        <article class="route-summary" id="routeSummary" aria-live="polite">
+          <button class="summary-close" id="summaryClose" aria-label="Close route summary">×</button>
+          <span class="summary-kicker">Your scenic route</span>
+          <div class="summary-stats">
+            <div><strong id="routeMiles">—</strong><span>miles</span></div>
+            <div><strong id="routeTime">—</strong><span>drive time</span></div>
+            <div><strong id="routeRoads">—</strong><span>rustic roads</span></div>
+          </div>
+          <div class="summary-actions">
+            <a class="directions-button" id="googleMapsLink" href="#" target="_blank" rel="noreferrer">Open in Google Maps</a>
+            <button class="text-button" id="editRouteButton">Keep editing</button>
+          </div>
+          <p class="route-note">Check road conditions and closures before you leave.</p>
+        </article>
+        <div class="loading-card" id="loadingCard" role="status">
+          <span class="spinner"></span>
+          <div><strong>Finding the scenic way</strong><small>Connecting your roads and stops…</small></div>
+        </div>
+        <div class="toast" id="toast" role="status"></div>
+      </section>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
