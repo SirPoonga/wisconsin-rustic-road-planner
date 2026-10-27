@@ -98,6 +98,27 @@ function roadMiles(road) {
   return (Number(road.properties.distance || 0) / 1609.344).toFixed(1);
 }
 
+function roadSurface(road) {
+  const properties = road?.properties || {};
+  if (properties.surface) return String(properties.surface).replace(/\s+/g, ' ').trim();
+  if (properties.paved && properties.unpaved) return 'Paved and unpaved';
+  if (properties.paved) return 'Paved';
+  if (properties.unpaved) return 'Unpaved';
+  return 'Surface not listed';
+}
+
+function roadSurfaceClass(road) {
+  const properties = road?.properties || {};
+  if (properties.paved && properties.unpaved) return 'mixed';
+  if (properties.paved) return 'paved';
+  if (properties.unpaved) return 'unpaved';
+  return 'unknown';
+}
+
+function roadSurfaceBadge(road) {
+  return `<span class="surface-label surface-${roadSurfaceClass(road)}">${escapeHtml(roadSurface(road))}</span>`;
+}
+
 function featureLatLngs(road) {
   const coords = road.geometry.coordinates;
   const lines = road.geometry.type === 'MultiLineString' ? coords : [coords];
@@ -170,7 +191,7 @@ function initRoadLayer(road) {
     weight: 3,
     opacity: 0.62,
   }).addTo(map);
-  layer.bindTooltip(`${roadLabel(road)} · ${roadMiles(road)} mi`, { className: 'rustic-road-tooltip', sticky: true });
+  layer.bindTooltip(`${roadLabel(road)} · ${roadMiles(road)} mi · ${roadSurface(road)}`, { className: 'rustic-road-tooltip', sticky: true });
   layer.on('click', e => {
     L.DomEvent.stopPropagation(e);
     if (!state.pickMode) toggleRoad(road.properties.id);
@@ -214,7 +235,7 @@ function renderRoadList() {
     const link = url ? `<a class="road-link" data-road-link href="${escapeHtml(url)}" target="_blank" rel="noreferrer" title="Open official page for ${escapeHtml(roadLabel(road))}" aria-label="Open official page for ${escapeHtml(roadLabel(road))}">↗</a>` : '';
     return `<div class="road-card${selected ? ' selected' : ''}" data-road-id="${id}" role="button" tabindex="0" aria-pressed="${selected}">
       <span class="mini-shield">${n === 999 ? 'R' : n}</span>
-      <span class="road-copy"><strong>${escapeHtml(roadLabel(road))}</strong><small>${roadMiles(road)} miles</small></span>
+      <span class="road-copy"><strong>${escapeHtml(roadLabel(road))}</strong><small>${roadMiles(road)} miles · ${roadSurfaceBadge(road)}</small></span>
       ${link}
       <span class="road-check" aria-hidden="true">✓</span>
     </div>`;
@@ -250,7 +271,7 @@ function renderItinerary() {
     const isRoad = item.type === 'road';
     const road = isRoad ? state.roadById.get(item.id) : null;
     const title = isRoad ? roadLabel(road) : item.label;
-    const subtitle = isRoad ? `${roadMiles(road)} scenic miles` : 'Intermediate stop';
+    const subtitle = isRoad ? `${roadMiles(road)} scenic miles · ${roadSurface(road)}` : 'Intermediate stop';
     const url = isRoad ? roadUrl(road) : null;
     const link = url ? `<a class="road-link itinerary-road-link" data-road-link href="${escapeHtml(url)}" target="_blank" rel="noreferrer" title="Open official page for ${escapeHtml(title)}">Official page ↗</a>` : '';
     const key = itineraryItemKey(item);

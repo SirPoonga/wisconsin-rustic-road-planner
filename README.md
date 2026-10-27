@@ -31,8 +31,8 @@ The sender is configured as `feedback@kevinmjonas.com` in `wrangler.jsonc`; that
 - Basemap and place search: OpenStreetMap contributors and Nominatim.
 - Routing: the public OSRM routing service for connectors between stops; the supplied Rustic Road GeoJSON geometry is used directly for selected road segments so the map and GPX stay on the scenic road even when the routing network takes a nearby shortcut.
 
-The GeoJSON has no structured pavement or surface field. Some road descriptions mention gravel, sand, paved, or unpaved sections, but that free text is not complete enough to classify every road.
+The site-local GeoJSON includes structured `surface`, `paved`, and `unpaved` properties for every road. These classifications are refreshed from the official WisDOT road pages by running `node scripts/fetch-widot-surfaces.mjs`; the public WisDOT Rustic Roads ArcGIS layer is used as a fallback when a page is temporarily unavailable. Roads containing both types are shown as `Paved and unpaved` in the planner.
 
-The site-local GeoJSON also includes a structured `url` property extracted from each road's notes when an official link is present. Roads without a source link keep `url: null`.
+The GeoJSON also includes a structured `url` property extracted from each road's notes when an official link is present. Roads without a source link keep `url: null`.
 
 Run `node scripts/prepare-data.mjs` to refresh the sanitized, site-local GeoJSON after updating the source repository.

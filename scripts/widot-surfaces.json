@@ -1,0 +1,1542 @@
+[
+  {
+    "title": "Wisconsin Rustic Road 43",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr43.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr43.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 75",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr75.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr75.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved and unpaved portions"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 45",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr45.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr45.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 64",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr64.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr64.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 005",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr5.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr5.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 097",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr97.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr97.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved and unpaved portions"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 001",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr1.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr1.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 099",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr99.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr99.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 003",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr3.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr3.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 002",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr2.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr2.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 004",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr4.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr4.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 011",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr11.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr11.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 098",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr98.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr98.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 095",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr95.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr95.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved and unpaved portions"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 090",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr90.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr90.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 096",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr96.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr96.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 006",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr6.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr6.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 086",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr86.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr86.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 010",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr10.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr10.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 094",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr94.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr94.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 092",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr92.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr92.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 091",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr91.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr91.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 088",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr88.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr88.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 087",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr87.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr87.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 008",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr8.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr8.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 023",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr23.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr23.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 024",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr24.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr24.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 027",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr27.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr27.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 085",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr85.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr85.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 081",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr81.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr81.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 080",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr80.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr80.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 093",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr93.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr93.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 007",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr7.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr7.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 089",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr89.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr89.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 013",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr13.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr13.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 014",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr14.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr14.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 016",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr16.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr16.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 017",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr17.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr17.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 018",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr18.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr18.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 025",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr25.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr25.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 015",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr15.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr15.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 019",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr19.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr19.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 012",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr12.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr12.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 020",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr20.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr20.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 021",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr21.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr21.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 022",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr22.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr22.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 028",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr28.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr28.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved and unpaved portions"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 083",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr83.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr83.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 084",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr84.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr84.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 082",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr82.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr82.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 026",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr26.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr26.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 029",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr29.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr29.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 030",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr30.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr30.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 79",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr79.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr79.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 122",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr122.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr122.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 119",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr119.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr119.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 36",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr36.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr36.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 39",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr39.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr39.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 72",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr72.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr72.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved and unpaved portions"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 124",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr124.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr124.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 42",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr42.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr42.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 55",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr55.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr55.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 33",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr33.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr33.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 109",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr109.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr109.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 123",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr123.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr123.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 68",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr68.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr68.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 65",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr65.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr65.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 38",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr38.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr38.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 32",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr32.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr32.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 73",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr73.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr73.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 54",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr54.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr54.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 69",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr69.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr69.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 70",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr70.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr70.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 126",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr126.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr126.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 66",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr66.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr66.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 74",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr74.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr74.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 63",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr63.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr63.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 60",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr60.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr60.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 78",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr78.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr78.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 100",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr100.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr100.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 49",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr49.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr49.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 56",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr56.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr56.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 35",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr35.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr35.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 125",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr125.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr125.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 110",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr110.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr110.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 107",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr107.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr107.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 106",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr106.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr106.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 105",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr105.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr105.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 104",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr104.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr104.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 103",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr103.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr103.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 102",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr102.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr102.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 101",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr101.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr101.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 76",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr76.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr76.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 71",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr71.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr71.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 121",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr121.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr121.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 67",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr67.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr67.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 120",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr120.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr120.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 118",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr118.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr118.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 117",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr117.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr117.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 116",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr116.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr116.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 115",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr115.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr115.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 114",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr114.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr114.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 113",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr113.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr113.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 62",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr62.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr62.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 61",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr61.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr61.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 112",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr112.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr112.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 111",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr111.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr111.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 108",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr108.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr108.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 59",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr59.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr59.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 58",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr58.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr58.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 57",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr57.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr57.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 53",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr53.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr53.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 52",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr52.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr52.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 51",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr51.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr51.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Unpaved"
+    ],
+    "surface": "Unpaved",
+    "paved": false,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 50",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr50.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr50.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 48",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr48.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr48.aspx",
+    "source": "WisDOT road page",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 47",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr47.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr47.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 46",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr46.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr46.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 44",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr44.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr44.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 41",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr41.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr41.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 40",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr40.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr40.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 37",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr37.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr37.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 34",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr34.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr34.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved",
+      "Unpaved"
+    ],
+    "surface": "Paved and unpaved",
+    "paved": true,
+    "unpaved": true
+  },
+  {
+    "title": "Wisconsin Rustic Road 31",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr31.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr31.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 77",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr77.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr77.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  },
+  {
+    "title": "Wisconsin Rustic Road 009",
+    "url": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr9.aspx",
+    "sourceUrl": "https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr9.aspx",
+    "source": "WisDOT Rustic Roads ArcGIS layer",
+    "surfaceSegments": [
+      "Paved"
+    ],
+    "surface": "Paved",
+    "paved": true,
+    "unpaved": false
+  }
+]
