@@ -9,6 +9,11 @@ function cleanCoordinates(value) {
   return value.map(cleanCoordinates);
 }
 
+function officialUrl(notes) {
+  const match = String(notes || '').match(/https?:\/\/[^\s]+/i);
+  return match ? match[0] : null;
+}
+
 const cleaned = {
   type: 'FeatureCollection',
   features: raw.features
@@ -19,6 +24,7 @@ const cleaned = {
         id: feature.properties.id,
         title: feature.properties.title,
         notes: feature.properties.notes || '',
+        url: officialUrl(feature.properties.notes),
         distance: feature.properties.distance || 0,
         latitude: feature.properties.latitude,
         longitude: feature.properties.longitude,

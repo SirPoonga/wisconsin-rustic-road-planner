@@ -144,6 +144,25 @@ function shortDescription(road) {
   return note.length > 88 ? `${note.slice(0, 85).trim()}…` : note;
 }
 
+function roadUrl(road) {
+  if (road?.properties?.url) {
+    try {
+      const storedUrl = new URL(road.properties.url);
+      if (['http:', 'https:'].includes(storedUrl.protocol)) return storedUrl.href;
+    } catch {
+      // Fall back to the legacy notes field below.
+    }
+  }
+  const match = String(road?.properties?.notes || '').match(/https?:\/\/[^\s]+/i);
+  if (!match) return null;
+  try {
+    const url = new URL(match[0]);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
 function initRoadLayer(road) {
   const layer = L.polyline(featureLatLngs(road), {
     pane: 'roads',
@@ -191,11 +210,14 @@ function renderRoadList() {
     const id = road.properties.id;
     const selected = state.selectedIds.has(id);
     const n = roadNumber(road);
-    return `<button class="road-card${selected ? ' selected' : ''}" data-road-id="${id}" role="listitem" aria-pressed="${selected}">
+    const url = roadUrl(road);
+    const link = url ? `<a class="road-link" data-road-link href="${escapeHtml(url)}" target="_blank" rel="noreferrer" title="Open official page for ${escapeHtml(roadLabel(road))}" aria-label="Open official page for ${escapeHtml(roadLabel(road))}">↗</a>` : '';
+    return `<div class="road-card${selected ? ' selected' : ''}" data-road-id="${id}" role="button" tabindex="0" aria-pressed="${selected}">
       <span class="mini-shield">${n === 999 ? 'R' : n}</span>
-      <span class="road-copy"><strong>${roadLabel(road)}</strong><small>${roadMiles(road)} miles</small></span>
+      <span class="road-copy"><strong>${escapeHtml(roadLabel(road))}</strong><small>${roadMiles(road)} miles</small></span>
+      ${link}
       <span class="road-check" aria-hidden="true">✓</span>
-    </button>`;
+    </div>`;
   }).join('');
 }
 
@@ -229,6 +251,8 @@ function renderItinerary() {
     const road = isRoad ? state.roadById.get(item.id) : null;
     const title = isRoad ? roadLabel(road) : item.label;
     const subtitle = isRoad ? `${roadMiles(road)} scenic miles` : 'Intermediate stop';
+    const url = isRoad ? roadUrl(road) : null;
+    const link = url ? `<a class="road-link itinerary-road-link" data-road-link href="${escapeHtml(url)}" target="_blank" rel="noreferrer" title="Open official page for ${escapeHtml(title)}">Official page ↗</a>` : '';
     const key = itineraryItemKey(item);
     const highlighted = key === state.activeHighlightKey;
     const endpointControls = isRoad ? `<span class="road-endpoints">
@@ -236,7 +260,7 @@ function renderItinerary() {
     </span>` : '';
     return `<li class="itinerary-item${highlighted ? ' is-map-highlighted' : ''}" data-index="${i}" data-item-key="${escapeHtml(key)}" tabindex="0" aria-label="Highlight ${escapeHtml(title)} on the map">
       <span class="item-order">${i + 1}</span>
-      <span class="item-copy"><strong>${escapeHtml(title)}</strong><small>${subtitle}</small>${endpointControls}</span>
+      <span class="item-copy"><strong>${escapeHtml(title)}</strong><small>${subtitle}</small>${link}${endpointControls}</span>
       <span class="item-buttons">
         <button data-move="up" aria-label="Move ${escapeHtml(title)} up" ${i === 0 ? 'disabled' : ''}>↑</button>
         <button data-move="down" aria-label="Move ${escapeHtml(title)} down" ${i === state.itinerary.length - 1 ? 'disabled' : ''}>↓</button>
@@ -1169,8 +1193,16 @@ async function loadRoads() {
 }
 
 els.roadList.addEventListener('click', event => {
+  if (event.target.closest('[data-road-link]')) return;
   const card = event.target.closest('[data-road-id]');
   if (card) toggleRoad(card.dataset.roadId);
+});
+
+els.roadList.addEventListener('keydown', event => {
+  const card = event.target.closest('[data-road-id]');
+  if (!card || event.target !== card || !['Enter', ' '].includes(event.key)) return;
+  event.preventDefault();
+  toggleRoad(card.dataset.roadId);
 });
 
 els.roadSearch.addEventListener('input', renderRoadList);
@@ -1185,6 +1217,7 @@ document.addEventListener('keydown', event => {
 els.itineraryList.addEventListener('click', event => {
   const row = event.target.closest('[data-index]');
   if (!row) return;
+  if (event.target.closest('[data-road-link]')) return;
   if (event.target.closest('.road-endpoint-toggle')) return;
   const index = Number(row.dataset.index);
   if (event.target.closest('[data-remove]')) {

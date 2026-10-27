@@ -33,4 +33,6 @@ The sender is configured as `feedback@kevinmjonas.com` in `wrangler.jsonc`; that
 
 The GeoJSON has no structured pavement or surface field. Some road descriptions mention gravel, sand, paved, or unpaved sections, but that free text is not complete enough to classify every road.
 
+The site-local GeoJSON also includes a structured `url` property extracted from each road's notes when an official link is present. Roads without a source link keep `url: null`.
+
 Run `node scripts/prepare-data.mjs` to refresh the sanitized, site-local GeoJSON after updating the source repository.
