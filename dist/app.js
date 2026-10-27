@@ -20,7 +20,6 @@ const state = {
 
 const STORAGE_KEY = 'wisconsin-rustic-road-planner-state-v1';
 const MAX_ROADS = 25;
-
 const els = {
   shell: document.querySelector('.app-shell'),
   roadList: document.querySelector('#roadList'),
@@ -34,6 +33,7 @@ const els = {
   addStopButton: document.querySelector('#addStopButton'),
   optimizeButton: document.querySelector('#optimizeButton'),
   clearTripButton: document.querySelector('#clearTripButton'),
+  feedbackForm: document.querySelector('#feedbackForm'),
   buildRouteButton: document.querySelector('#buildRouteButton'),
   fitWisconsinButton: document.querySelector('#fitWisconsinButton'),
   pickBanner: document.querySelector('#pickBanner'),
@@ -1294,6 +1294,38 @@ els.optimizeButton.addEventListener('click', autoOrder);
 els.clearTripButton.addEventListener('click', clearTrip);
 els.buildRouteButton.addEventListener('click', buildRoute);
 els.downloadGpxLink.addEventListener('click', () => showToast('GPX downloaded with the route track and saved visit points.'));
+els.feedbackForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const submitButton = event.currentTarget.querySelector('button[type="submit"]');
+  const form = new FormData(event.currentTarget);
+  const message = String(form.get('message') || '').trim();
+  if (!message) {
+    showToast('Please enter a feedback message first.');
+    return;
+  }
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending…';
+  fetch('/api/feedback', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: String(form.get('name') || '').trim(),
+      email: String(form.get('email') || '').trim(),
+      message,
+      company: String(form.get('company') || '').trim(),
+    }),
+  }).then(async response => {
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'The feedback email could not be sent.');
+    event.currentTarget.reset();
+    showToast('Thanks — your feedback was sent.');
+  }).catch(error => {
+    showToast(error.message || 'The feedback email could not be sent.');
+  }).finally(() => {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Send feedback';
+  });
+});
 els.fitWisconsinButton.addEventListener('click', () => map.fitBounds(L.featureGroup([...state.roadLayers.values()]).getBounds(), { padding: [30, 30] }));
 els.startInput.addEventListener('change', () => geocode('start'));
 els.endInput.addEventListener('change', () => geocode('end'));

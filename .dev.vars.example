@@ -1,0 +1,4 @@
+# Copy this file to .dev.vars for local Wrangler development.
+# Use a verified sender domain configured in Cloudflare Email Service.
+FEEDBACK_TO="your-destination@example.com"
+FEEDBACK_FROM="feedback@your-verified-domain.example"

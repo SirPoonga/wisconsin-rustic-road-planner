@@ -10,6 +10,21 @@ Serve `dist/` with any static HTTP server. For example:
 python -m http.server 4173 --directory dist
 ```
 
+The feedback form uses the Worker API so the destination address is never shipped to the browser. To test it locally, copy `.dev.vars.example` to `.dev.vars`, fill in the two secret values, and run:
+
+```powershell
+npx wrangler dev
+```
+
+For production, configure the same values as Worker secrets:
+
+```powershell
+npx wrangler secret put FEEDBACK_TO
+npx wrangler secret put FEEDBACK_FROM
+```
+
+`FEEDBACK_FROM` must be an address on a domain onboarded to Cloudflare Email Service. Email Sending requires a Workers Paid plan; the Worker binding is named `EMAIL` in `wrangler.jsonc`.
+
 ## Data and services
 
 - Rustic Roads geometry: [Wiscmapper/WisconsinRusticRoads](https://github.com/Wiscmapper/WisconsinRusticRoads), MIT License.

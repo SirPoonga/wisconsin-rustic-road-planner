@@ -105,6 +105,25 @@
               <button class="secondary-button clear-trip-button" id="clearTripButton" type="button">Clear saved trip</button>
             </div>
           </section>
+
+          <section class="feedback-panel" aria-labelledby="feedbackTitle">
+            <div class="section-heading">
+              <div><h2 id="feedbackTitle">Send feedback</h2><p>Found a problem or have an idea? Send a note to the planner owner.</p></div>
+            </div>
+            <form class="feedback-form" id="feedbackForm">
+              <div class="feedback-fields">
+                <label for="feedbackName">Name <span>(optional)</span></label>
+                <input id="feedbackName" name="name" type="text" autocomplete="name" placeholder="Your name" />
+                <label for="feedbackEmail">Reply email <span>(optional)</span></label>
+                <input id="feedbackEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <label class="feedback-honeypot" aria-hidden="true">Company <input name="company" tabindex="-1" autocomplete="off" /></label>
+              <label for="feedbackMessage">Message</label>
+              <textarea id="feedbackMessage" name="message" rows="3" required placeholder="What should we improve?"></textarea>
+              <button class="secondary-button feedback-submit" type="submit">Send feedback</button>
+              <small>Your note is sent securely through the site. Your email address is not published.</small>
+            </form>
+          </section>
         </main>
 
         <footer class="planner-footer">
@@ -166,6 +185,6 @@
       </section>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js?v=route-style-1"></script>
+    <script src="app.js?v=feedback-2"></script>
   </body>
 </html>

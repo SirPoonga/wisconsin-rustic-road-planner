@@ -111,6 +111,21 @@ kbd { padding: 2px 5px; border: 1px solid #d6d1c7; border-radius: 4px; color: #8
 .clear-trip-button { grid-column: 1 / -1; color: var(--clay-dark); }
 .clear-trip-button:hover:not(:disabled) { border-color: var(--clay); background: #fff5f1; }
 .clear-trip-button[data-confirming="true"] { border-color: var(--clay); color: white; background: var(--clay); }
+.feedback-panel { padding: 20px 22px 24px 60px; border-top: 1px solid var(--line); }
+.feedback-panel .section-heading { margin-bottom: 12px; }
+.feedback-panel h2 { font-size: 17px; }
+.feedback-panel p { max-width: 310px; }
+.feedback-form { display: grid; gap: 7px; }
+.feedback-form label { color: var(--forest-dark); font-size: 10px; font-weight: 800; }
+.feedback-form label span { color: var(--muted); font-weight: 500; }
+.feedback-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 8px; }
+.feedback-form input, .feedback-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 8px; outline: 0; color: var(--forest-dark); background: #fff; font: inherit; font-size: 11px; }
+.feedback-form input { min-height: 32px; padding: 7px 9px; }
+.feedback-form textarea { min-height: 70px; padding: 8px 9px; resize: vertical; }
+.feedback-form input:focus, .feedback-form textarea:focus { border-color: var(--moss); box-shadow: 0 0 0 3px rgba(83,109,88,.12); }
+.feedback-form small { color: var(--muted); font-size: 9px; line-height: 1.35; }
+.feedback-submit { width: 100%; margin-top: 3px; }
+.feedback-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .planner-footer { padding: 14px 22px 12px; border-top: 1px solid var(--line); background: var(--paper); }
 .primary-button { display: flex; width: 100%; min-height: 49px; align-items: center; justify-content: center; gap: 12px; border: 0; border-radius: 11px; background: var(--clay); color: white; font-weight: 800; box-shadow: 0 8px 18px rgba(188,95,61,.24); cursor: pointer; transition: transform .15s, background .15s; }
 .primary-button:hover:not(:disabled) { transform: translateY(-1px); background: var(--clay-dark); }
@@ -210,5 +225,5 @@ kbd { padding: 2px 5px; border: 1px solid #d6d1c7; border-radius: 4px; color: #8
   .intro-card { margin-right: 16px; margin-left: 16px; }
   .section-block { padding-right: 16px; padding-left: 16px; }
   .planner-footer { padding-right: 16px; padding-left: 16px; }
-  .location-stack, .search-box, .road-list, .itinerary-list, .stop-search, .itinerary-actions { margin-left: 34px; }
+  .location-stack, .search-box, .road-list, .itinerary-list, .stop-search, .itinerary-actions, .feedback-panel { margin-left: 34px; }
 }
