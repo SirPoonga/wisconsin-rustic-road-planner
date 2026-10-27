@@ -15,6 +15,7 @@ function officialUrl(notes) {
 }
 
 const urlOverrides = {
+  'Wisconsin Rustic Road 082': 'https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr82.aspx',
   'Wisconsin Rustic Road 100': 'https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr100.aspx',
 };
 
