@@ -77,7 +77,7 @@ async function worker() {
     pageResults[index] = await fetchPageSurface(data.features[index]);
   }
 }
-await Promise.all(Array.from({ length: 4 }, worker));
+await Promise.all(Array.from({ length: 2 }, worker));
 
 const results = data.features.map((feature, index) => {
   const title = feature.properties.title;
