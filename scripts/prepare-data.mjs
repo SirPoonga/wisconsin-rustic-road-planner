@@ -14,6 +14,10 @@ function officialUrl(notes) {
   return match ? match[0] : null;
 }
 
+const urlOverrides = {
+  'Wisconsin Rustic Road 100': 'https://wisconsindot.gov/Pages/travel/road/rustic-roads/rr100.aspx',
+};
+
 const cleaned = {
   type: 'FeatureCollection',
   features: raw.features
@@ -24,7 +28,7 @@ const cleaned = {
         id: feature.properties.id,
         title: feature.properties.title,
         notes: feature.properties.notes || '',
-        url: officialUrl(feature.properties.notes),
+        url: urlOverrides[feature.properties.title] || officialUrl(feature.properties.notes),
         distance: feature.properties.distance || 0,
         latitude: feature.properties.latitude,
         longitude: feature.properties.longitude,
