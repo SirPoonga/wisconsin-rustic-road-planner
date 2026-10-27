@@ -1296,8 +1296,9 @@ els.buildRouteButton.addEventListener('click', buildRoute);
 els.downloadGpxLink.addEventListener('click', () => showToast('GPX downloaded with the route track and saved visit points.'));
 els.feedbackForm.addEventListener('submit', event => {
   event.preventDefault();
-  const submitButton = event.currentTarget.querySelector('button[type="submit"]');
-  const form = new FormData(event.currentTarget);
+  const feedbackForm = event.currentTarget;
+  const submitButton = feedbackForm.querySelector('button[type="submit"]');
+  const form = new FormData(feedbackForm);
   const message = String(form.get('message') || '').trim();
   if (!message) {
     showToast('Please enter a feedback message first.');
@@ -1317,7 +1318,7 @@ els.feedbackForm.addEventListener('submit', event => {
   }).then(async response => {
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || 'The feedback email could not be sent.');
-    event.currentTarget.reset();
+    feedbackForm.reset();
     showToast('Thanks — your feedback was sent.');
   }).catch(error => {
     showToast(error.message || 'The feedback email could not be sent.');
