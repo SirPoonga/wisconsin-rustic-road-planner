@@ -7,6 +7,7 @@ const MAX_NAME_LENGTH = 120;
 const MAX_EMAIL_LENGTH = 254;
 const MAX_MESSAGE_LENGTH = 5000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RESEND_API_URL = 'https://api.resend.com/emails';
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -37,7 +38,7 @@ async function handleFeedback(request, env) {
   if (!isAllowedOrigin(request)) {
     return json({ error: 'Cross-origin requests are not allowed.' }, 403);
   }
-  if (!env.EMAIL || !env.FEEDBACK_TO || !env.FEEDBACK_FROM) {
+  if (!env.RESEND_API_KEY || !env.FEEDBACK_TO || !env.EMAIL_FROM) {
     return json({ error: 'Feedback email is not configured yet.' }, 503);
   }
 
@@ -81,17 +82,30 @@ async function handleFeedback(request, env) {
   `;
 
   try {
-    const result = await env.EMAIL.send({
-      from: { email: env.FEEDBACK_FROM, name: 'Rustic Road Trip Planner' },
-      to: env.FEEDBACK_TO,
-      replyTo: email || undefined,
-      subject: 'Rustic Road Trip Planner feedback',
-      text,
-      html,
+    const response = await fetch(RESEND_API_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY.trim()}`,
+        'Content-Type': 'application/json',
+        'Idempotency-Key': crypto.randomUUID(),
+      },
+      body: JSON.stringify({
+        from: env.EMAIL_FROM.trim(),
+        to: [env.FEEDBACK_TO.trim()],
+        reply_to: email || undefined,
+        subject: 'Rustic Road Trip Planner feedback',
+        text,
+        html,
+      }),
     });
-    return json({ ok: true, messageId: result?.messageId || null });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      console.error(JSON.stringify({ message: 'Feedback email failed', provider: 'resend', status: response.status }));
+      return json({ error: 'The feedback email could not be sent. Please try again later.' }, 502);
+    }
+    return json({ ok: true, messageId: result?.id || null });
   } catch (error) {
-    console.error('Feedback email failed', error);
+    console.error(JSON.stringify({ message: 'Feedback email request failed', provider: 'resend', error: error instanceof Error ? error.message : String(error) }));
     return json({ error: 'The feedback email could not be sent. Please try again later.' }, 502);
   }
 }

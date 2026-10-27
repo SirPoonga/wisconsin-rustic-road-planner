@@ -10,20 +10,20 @@ Serve `dist/` with any static HTTP server. For example:
 python -m http.server 4173 --directory dist
 ```
 
-The feedback form uses the Worker API so the destination address is never shipped to the browser. To test it locally, copy `.dev.vars.example` to `.dev.vars`, fill in the two secret values, and run:
+The feedback form uses a Worker API and Resend so the destination address and API key are never shipped to the browser. To test it locally, copy `.dev.vars.example` to `.dev.vars`, fill in the Resend API key and destination, and run:
 
 ```powershell
 npx wrangler dev
 ```
 
-For production, configure the same values as Worker secrets:
+For production, configure the private values as Worker secrets:
 
 ```powershell
 npx wrangler secret put FEEDBACK_TO
-npx wrangler secret put FEEDBACK_FROM
+npx wrangler secret put RESEND_API_KEY
 ```
 
-`FEEDBACK_FROM` must be an address on a domain onboarded to Cloudflare Email Service. Email Sending requires a Workers Paid plan; the Worker binding is named `EMAIL` in `wrangler.jsonc`.
+The sender is configured as `feedback@kevinmjonas.com` in `wrangler.jsonc`; that domain must be verified in Resend before delivery will work.
 
 ## Data and services
 

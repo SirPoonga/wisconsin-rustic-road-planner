@@ -3,9 +3,11 @@
   "name": "wisconsin-rustic-road-planner",
   "main": "src/index.js",
   "compatibility_date": "2026-10-26",
+  "vars": {
+    "EMAIL_FROM": "Rustic Road Trip Planner <feedback@kevinmjonas.com>"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"
-  },
-  "send_email": [{ "name": "EMAIL" }]
+  }
 }
